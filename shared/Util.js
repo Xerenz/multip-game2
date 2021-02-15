@@ -32,6 +32,17 @@ Util.splitProperties = function(object, propertyNames, propertyForm) {
 }
 
 /**
+ * Allows for ES5 class inheritance by implementing functionality for a
+ * child class to inherit from a parent class.
+ * @param {Object} child The child object that inherits the parent
+ * @param {Object} parent The parent object to inherit from
+ */
+Util.extend = function(child, parent) {
+    child.prototype = Object.create(parent)
+    child.prototype.parent = parent.prototype
+}
+
+/**
  * Reduces the array to sum of its values
  * @param {Array<number>} array 
  */
